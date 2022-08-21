@@ -1,4 +1,4 @@
-import { group } from '../src'
+import { group } from '../src/group'
 
 describe('the group function', () => {
   test('should correctly map the array', () => {
