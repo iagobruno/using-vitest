@@ -5,8 +5,12 @@ export function group<T extends Array<any>, C extends (item: T[number]) => any>(
   const output = {} as Record<any, any[]>
   for (const item of input) {
     const key = callback(item)
-    output[key] ??= []
-    output[key].push(item)
+    if (key in output) {
+      output[key].push(item)
+    }
+    else {
+      output[key] = [item]
+    }
   }
   return output
 }
